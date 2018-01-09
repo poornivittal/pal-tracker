@@ -15,8 +15,11 @@ jobs:
         mariadb: '10.2'
       install: skip
 <<<<<<< HEAD
+<<<<<<< HEAD
       script: ./gradlew clean build -x test
 =======
+=======
+>>>>>>> eece7f3... Add task for migrating databases
       before_script:
         - mysql -uroot < databases/tracker/create_databases.sql
         - curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.1.1/flyway-commandline-5.1.1-linux-x64.tar.gz | tar xvz
