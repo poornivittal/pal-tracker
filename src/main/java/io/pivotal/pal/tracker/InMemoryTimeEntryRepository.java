@@ -36,7 +36,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository{
         if(timeEntryFromRepo!=null){
             dbMap.put(id,timeEntry);
         }
-        return timeEntryFromRepo;
+        return timeEntry;
     }
 
     public TimeEntry delete(Long id){

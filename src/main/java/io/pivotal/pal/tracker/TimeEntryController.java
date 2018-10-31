@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/time-entries/")
+@RequestMapping("/time-entries")
 public class TimeEntryController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class TimeEntryController {
         return new ResponseEntity(timeEntry, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
+    @GetMapping(value = "{id}")
     public ResponseEntity<TimeEntry> read(@PathVariable long id) {
         TimeEntry timeEntry = timeEntryRepository.find(id);
 
@@ -51,6 +51,6 @@ public class TimeEntryController {
     @DeleteMapping("{id}")
     public ResponseEntity<TimeEntry> delete(@PathVariable("id") long timeEntryId) {
         TimeEntry timeEntry = timeEntryRepository.delete(timeEntryId);
-        return new ResponseEntity(timeEntry, (timeEntry==null)?HttpStatus.NO_CONTENT:HttpStatus.OK);
+        return new ResponseEntity(timeEntry, (timeEntry==null)?HttpStatus.NOT_FOUND:HttpStatus.NO_CONTENT);
     }
 }
